@@ -1,0 +1,63 @@
+{
+  "info": {
+    "name": "BeForma Exercise AI API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8000/health"
+      }
+    },
+    {
+      "name": "List Exercises",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8000/api/v1/exercises"
+      }
+    },
+    {
+      "name": "Analyze Frame",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {"key": "file", "type": "file", "src": []},
+            {"key": "session_id", "value": "user_123_workout_456", "type": "text"}
+          ]
+        },
+        "url": "http://localhost:8000/api/v1/analyze-frame"
+      }
+    },
+    {
+      "name": "Analyze Video",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {"key": "file", "type": "file", "src": []},
+            {"key": "session_id", "value": "user_123_workout_456", "type": "text"},
+            {"key": "sample_every_n_frames", "value": "2", "type": "text"},
+            {"key": "return_timeline", "value": "false", "type": "text"}
+          ]
+        },
+        "url": "http://localhost:8000/api/v1/analyze-video"
+      }
+    },
+    {
+      "name": "Reset Session",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {"mode": "raw", "raw": "{\n  \"session_id\": \"user_123_workout_456\"\n}"},
+        "url": "http://localhost:8000/api/v1/reset-session"
+      }
+    }
+  ]
+}

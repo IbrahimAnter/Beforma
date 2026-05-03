@@ -1,0 +1,97 @@
+{
+  "global": {
+    "min_visibility": 0.55,
+    "min_pose_presence": 0.55,
+    "min_class_stability_frames": 8,
+    "history_size": 24,
+    "quality_count_threshold": 70,
+    "unknown_score_threshold": 0.55,
+    "ema_alpha": 0.35,
+    "save_uncertain_sequences": true,
+    "uncertain_dir": "captured_uncertain_sequences"
+  },
+  "exercises": {
+    "squat": {
+      "display_name": "Squat",
+      "rep_logic": {
+        "down_knee_angle": 105,
+        "up_knee_angle": 155,
+        "min_depth_delta": 0.06,
+        "max_knee_collapse_ratio": 0.85,
+        "max_torso_lean_deg": 45
+      },
+      "tips": [
+        "انزل أعمق قليلًا مع الحفاظ على الظهر مستقيمًا.",
+        "ادفع الركبتين للخارج ولا تتركهما ينهاران للداخل.",
+        "ثبت الكور ووزّع الوزن على منتصف القدم."
+      ]
+    },
+    "push_up": {
+      "display_name": "Push-Up",
+      "rep_logic": {
+        "down_elbow_angle": 90,
+        "up_elbow_angle": 155,
+        "max_body_line_error": 0.08,
+        "min_chest_drop": 0.04
+      },
+      "tips": [
+        "شد الكور حتى لا يهبط الحوض أو يرتفع كثيرًا.",
+        "انزل حتى يصل الكوع لمدى كافٍ ثم ادفع كاملًا.",
+        "اجعل المرفقين بزاوية مريحة بدلًا من فردهما للخارج جدًا."
+      ]
+    },
+    "bicep_curl": {
+      "display_name": "Bicep Curl",
+      "rep_logic": {
+        "top_elbow_angle": 55,
+        "bottom_elbow_angle": 150,
+        "max_upper_arm_drift": 0.08
+      },
+      "tips": [
+        "ثبت أعلى الذراع بجانب الجسم.",
+        "لا تستخدم الزخم من الظهر أو الكتف.",
+        "أكمل المدى كاملًا نزولًا وصعودًا."
+      ]
+    },
+    "shoulder_press": {
+      "display_name": "Shoulder Press",
+      "rep_logic": {
+        "bottom_elbow_angle": 95,
+        "top_elbow_angle": 160,
+        "min_wrist_above_shoulder": 0.02,
+        "max_spine_lean_deg": 25
+      },
+      "tips": [
+        "أبعد القوس الزائد في أسفل الظهر وشد البطن.",
+        "ارفع الوزن فوق الكتف في مسار ثابت.",
+        "أنهِ التكرار بفرد الذراعين بدون قفل مبالغ فيه للمرفق."
+      ]
+    },
+    "jumping_jack": {
+      "display_name": "Jumping Jack",
+      "rep_logic": {
+        "feet_apart_ratio": 1.6,
+        "feet_together_ratio": 1.1,
+        "hands_overhead_margin": 0.03
+      },
+      "tips": [
+        "افتح القدمين بشكل أوضح في الجزء العلوي.",
+        "ارفع اليدين أعلى الرأس بالكامل.",
+        "حافظ على إيقاع ثابت بدل السرعة غير المنتظمة."
+      ]
+    },
+    "lateral_raise": {
+      "display_name": "Lateral Raise",
+      "rep_logic": {
+        "top_wrist_to_shoulder_margin": 0.05,
+        "bottom_arm_down_margin": 0.1,
+        "max_torso_sway": 0.06
+      },
+      "tips": [
+        "ارفع الذراع حتى مستوى الكتف تقريبًا فقط.",
+        "قلل تأرجح الجذع واستخدم وزنًا مناسبًا.",
+        "احتفظ بانثناء بسيط في المرفق طوال الحركة."
+      ]
+    }
+  }
+}
