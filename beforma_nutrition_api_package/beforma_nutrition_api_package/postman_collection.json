@@ -1,0 +1,70 @@
+{
+  "info": {
+    "name": "BeForma Nutrition API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {"key": "baseUrl", "value": "http://localhost:8000"},
+    {"key": "apiKey", "value": ""}
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {"method": "GET", "url": "{{baseUrl}}/health"}
+    },
+    {
+      "name": "Calculate Targets",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "X-API-Key", "value": "{{apiKey}}"}
+        ],
+        "url": "{{baseUrl}}/api/v1/nutrition/targets",
+        "body": {"mode": "raw", "raw": "{\n  \"age\": 24,\n  \"gender\": \"male\",\n  \"height\": 178,\n  \"weight\": 82,\n  \"activity_level\": 1.55,\n  \"goal\": \"lose\"\n}"}
+      }
+    },
+    {
+      "name": "Generate Meal Plan",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "X-API-Key", "value": "{{apiKey}}"}
+        ],
+        "url": "{{baseUrl}}/api/v1/nutrition/meal-plan",
+        "body": {"mode": "raw", "raw": "{\n  \"age\": 24,\n  \"gender\": \"male\",\n  \"height\": 178,\n  \"weight\": 82,\n  \"activity_level\": 1.55,\n  \"goal\": \"lose\",\n  \"num_meals\": 4,\n  \"strategy\": \"strict\"\n}"}
+      }
+    },
+    {
+      "name": "Meals Catalog",
+      "request": {"method": "GET", "url": "{{baseUrl}}/api/v1/nutrition/meals?meal_type=lunch&tag=high%20protein"}
+    },
+    {
+      "name": "Recommendations",
+      "request": {"method": "GET", "url": "{{baseUrl}}/api/v1/nutrition/recommendations?goal=gain&meal_type=dinner&n=5"}
+    },
+    {
+      "name": "Substitutions",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "url": "{{baseUrl}}/api/v1/nutrition/substitutions",
+        "body": {"mode": "raw", "raw": "{\n  \"meal_name\": \"Chicken Stir-fry with Brown Rice\"\n}"}
+      }
+    },
+    {
+      "name": "Feedback",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "url": "{{baseUrl}}/api/v1/nutrition/feedback",
+        "body": {"mode": "raw", "raw": "{\n  \"meal_name\": \"Greek Yogurt Parfait\",\n  \"accepted\": true,\n  \"user_id\": \"user_123\"\n}"}
+      }
+    },
+    {
+      "name": "Feedback Stats",
+      "request": {"method": "GET", "url": "{{baseUrl}}/api/v1/nutrition/feedback/stats"}
+    }
+  ]
+}
