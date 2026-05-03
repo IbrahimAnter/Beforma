@@ -1,0 +1,62 @@
+{
+  "info": {
+    "name": "BeForma Railway API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {"key": "base_url", "value": "https://YOUR-RAILWAY-DOMAIN.up.railway.app"},
+    {"key": "api_key", "value": "change-me"}
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {"method": "GET", "url": "{{base_url}}/health"}
+    },
+    {
+      "name": "Generate Nutrition Meal Plan",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "x-api-key", "value": "{{api_key}}"}
+        ],
+        "url": "{{base_url}}/api/v1/nutrition/meal-plan",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"user_id\": \"user_123\",\n  \"age\": 24,\n  \"gender\": \"male\",\n  \"height\": 178,\n  \"weight\": 82,\n  \"activity_level\": 1.55,\n  \"goal\": \"lose\",\n  \"num_meals\": 4,\n  \"strategy\": \"strict\",\n  \"save_to_db\": true\n}"
+        }
+      }
+    },
+    {
+      "name": "Meal Feedback",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"},
+          {"key": "x-api-key", "value": "{{api_key}}"}
+        ],
+        "url": "{{base_url}}/api/v1/nutrition/feedback",
+        "body": {"mode": "raw", "raw": "{\n  \"user_id\": \"user_123\",\n  \"meal_name\": \"Greek Yogurt Parfait\",\n  \"accepted\": true\n}"}
+      }
+    },
+    {
+      "name": "Exercise Analyze Video",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "x-api-key", "value": "{{api_key}}"}],
+        "url": "{{base_url}}/api/v1/exercise/analyze-video",
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {"key": "file", "type": "file", "src": []},
+            {"key": "user_id", "value": "user_123", "type": "text"},
+            {"key": "workout_session_id", "value": "workout_456", "type": "text"},
+            {"key": "sample_every_n_frames", "value": "2", "type": "text"},
+            {"key": "return_timeline", "value": "false", "type": "text"},
+            {"key": "save_to_db", "value": "true", "type": "text"}
+          ]
+        }
+      }
+    }
+  ]
+}
